@@ -1,0 +1,45 @@
+// Copyright 2015 The gRPC Authors
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.helloworld";
+option java_outer_classname = "StudentProtoOuter";
+option objc_class_prefix = "SP";
+
+package helloworld;
+
+// The greeting service definition.
+service StudentProto {
+  // Sends a greeting
+  rpc GetStudentInfo (StudentInfoRequest) returns (StudentInfoReply) {}
+}
+
+message StudentInfoRequest {
+  string mssv = 1;
+}
+
+message StudentInfoReply {
+  message Contacts {
+    string name = 1;
+    string address = 2;
+  }
+
+  string name = 1;
+  string dob = 2;
+  uint32 student_id = 3;
+  string gender = 4;
+  string email = 5;
+  repeated Contacts contacts = 6;
+}
