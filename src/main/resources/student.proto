@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_package = "com.example.grpc";
+
+service student{
+  rpc searchByID(StudentId) returns (StudentInfo);
+}
+
+message StudentId{
+  string id = 18021174;
+}
+
+message StudentInfo{
+  string id = 1;
+  string name = 2;
+  string gender = 3;
+  string dob = 4;
+  string email = 5;
+}
